@@ -1,0 +1,47 @@
+<mxfile host="Electron" modified="2026-07-02T00:00:00.000Z" agent="Mozilla/5.0" version="21.0.0" type="device">
+  <diagram id="erd-diagram" name="ER Diagram">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Table Users -->
+        <mxCell id="2" value="USERS (Collection)&#10;--&#10;* PK: _id (ObjectId)&#10;  fullName (String)&#10;  email (String, Unique)&#10;  password (String)&#10;  role (String: 'jobseeker'|'employer'|'admin')&#10;  isBlocked (Boolean)&#10;  avatar (String)&#10;  companyName (String)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="220" height="210" as="geometry" />
+        </mxCell>
+
+        <!-- Table Jobs -->
+        <mxCell id="3" value="JOBS (Collection)&#10;--&#10;* PK: _id (ObjectId)&#10;  title (String)&#10;  description (String)&#10;  location (String)&#10;  salary (String)&#10;  type (String)&#10;  category (String)&#10;* FK: company (Ref USERS._id)&#10;  isClosed (Boolean)&#10;  deadline (Date)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="440" y="80" width="230" height="225" as="geometry" />
+        </mxCell>
+
+        <!-- Table Applications -->
+        <mxCell id="4" value="APPLICATIONS (Collection)&#10;--&#10;* PK: _id (ObjectId)&#10;* FK: job (Ref JOBS._id)&#10;* FK: applicant (Ref USERS._id)&#10;  status (String: 'Pending'|'Accepted'|'Rejected')&#10;  resume (String)&#10;  createdAt (Date)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="220" y="400" width="240" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Relation Lines with Crows Foot / Cardinality annotations -->
+        <!-- User to Job (1 to N) -->
+        <mxCell id="5" value="1                   0..*" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.4;entryX=0;entryY=0.4;strokeWidth=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- User to Application (1 to N) -->
+        <mxCell id="6" value="1                   0..*" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0;entryY=0.5;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Job to Application (1 to N) -->
+        <mxCell id="7" value="1                   0..*" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;entryX=1;entryY=0.5;strokeWidth=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,806 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>HNDIT4052 - Programming Individual Project Report</title>
+<!--[if gte mso 9]>
+<xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+@page {
+  size: A4;
+  margin-left: 1.5in;
+  margin-right: 1in;
+  margin-top: 1in;
+  margin-bottom: 1in;
+}
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  text-align: justify;
+  color: #000000;
+}
+h1 {
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 24pt;
+  margin-bottom: 12pt;
+  page-break-before: always;
+}
+h2 {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 18pt;
+  margin-bottom: 6pt;
+}
+h3 {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 12pt;
+  text-indent: 0.5in;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12pt;
+  margin-bottom: 18pt;
+}
+th, td {
+  border: 1px solid #000000;
+  padding: 8px;
+  font-size: 11pt;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+.cover-title {
+  font-size: 16pt;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.cover-sub {
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.signature-box {
+  margin-top: 60px;
+}
+.page-break {
+  page-break-before: always;
+}
+.preliminary-header {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+<div class='center'>
+  <br/><br/>
+  <div class='cover-title'>ONLINE JOB PORTAL SYSTEM - CAREERHUB</div>
+  <p class='center font-medium' style='text-indent:0;'>By</p>
+  <br/>
+  <p class='center bold' style='font-size:14pt; text-indent:0;'>K.L.M.Perera</p>
+  <p class='center bold' style='font-size:14pt; text-indent:0;'>DEH/HNDIT/F/E/2016/20</p>
+  <br/><br/>
+  <p class='center' style='font-size:11pt; text-indent:0;'>THE REPORT</p>
+  <br/>
+  <p class='center' style='font-size:11pt; text-indent:0;'>Submitted in partial fulfilment of the requirement</p>
+  <p class='center' style='font-size:11pt; text-indent:0;'>Of</p>
+  <p class='center bold' style='font-size:11pt; text-indent:0;'>HIGHER NATIONAL DIPLOMA IN INFORMATION TECHNOLOGY</p>
+  <p class='center' style='font-size:11pt; text-indent:0;'>2026</p>
+  <br/>
+  <p class='center' style='font-size:11pt; text-indent:0;'>Dehiwala Advanced Technological Institute</p>
+  <p class='center' style='font-size:11pt; text-indent:0;'>Dehiwala</p>
+  <p class='center' style='font-size:11pt; text-indent:0;'>Sri Lanka</p>
+  <br/><br/>
+  <p class='center' style='font-size:11pt; text-indent:0;'>-Approved-</p>
+  <br/><br/>
+  <table style='border: 0; width: 100%;'>
+    <tr style='border: 0;'>
+      <td style='border: 0; width: 50%; text-align: left;'>
+        ..................................................<br/>
+        <span class='bold'>Ms. N.R. MEDDAGE</span><br/>
+        THE SUPERVISOR,<br/>
+        SENIOR LECTURER,<br/>
+        ADVANCED TECHNOLOGICAL INSTITUTE,<br/>
+        DEHIWALA.<br/>
+        Date: ....................................
+      </td>
+      <td style='border: 0; width: 50%; text-align: left;'>
+        ..................................................<br/>
+        <span class='bold'>Mr. J.R. JAYASINGHE</span><br/>
+        THE HEAD,<br/>
+        DEPARTMENT OF IT,<br/>
+        ADVANCED TECHNOLOGICAL INSTITUTE,<br/>
+        DEHIWALA.<br/>
+        Date: ....................................
+      </td>
+    </tr>
+  </table>
+  <br/><br/>
+  <div class='center' style='display: inline-block; text-align: left; width: 50%; text-indent:0;'>
+    ..................................................<br/>
+    <span class='bold'>Ms N.N.P. DIAS</span><br/>
+    THE DIRECTOR,<br/>
+    ADVANCED TECHNOLOGICAL INSTITUTE,<br/>
+    DEHIWALA.<br/>
+    Date: ....................................
+  </div>
+</div>
+<div class='page-break'></div>
+<p style='font-size:11pt; text-indent:0;'>Supervisor : Ms. N.R. Meddage</p>
+<div class='preliminary-header'>SRI LANKA INSTITUTE OF ADVANCED TECHNOLOGICAL EDUCATION</div>
+<div class='center bold' style='font-size:12pt; margin-bottom: 5px; text-indent:0;'>DEHIWALA ADVANCED TECHNOLOGICAL INSTITUTE</div>
+<div class='center bold' style='font-size:12pt; margin-bottom: 20px; text-indent:0;'>DEPARTMENT OF INFORMATION TECHNOLOGY</div>
+<div class='center bold' style='font-size:11pt; border-bottom: 2px solid black; padding-bottom: 5px; margin-bottom: 20px; text-indent:0;'>
+  IT SPECIALIZATION PROJECT REPORT HEADER SHEET<br/>
+  <span style='font-weight:normal; font-size:10pt;'>(To be completed and signed by the students)</span>
+</div>
+<p style='text-indent:0;'>Student Registration Number: <span class='bold'>DEH/HNDIT/F/E/2016/20</span></p>
+<p style='text-indent:0;'>Family Name and initial: <span class='bold'>Perera K.L.M.</span></p>
+<p style='text-indent:0;'>Project title: <span class='bold'>Online Job Portal System - CareerHub</span></p>
+<br/>
+<div class='center bold' style='font-size:12pt; margin-bottom: 10px; text-indent:0;'>PLAGIARISM</div>
+<p style='text-indent:0;'>
+  You are reminded that there exist regulations concerning plagiarism. Extracts from these regulations are printed overleaf. Please sign below to say that you have read and understand these extracts:
+</p>
+<br/><br/><br/>
+<table style='border:0; width:100%;'>
+  <tr style='border:0;'>
+    <td style='border:0; width:50%;'>
+      ..................................................<br/>
+      Signature
+    </td>
+    <td style='border:0; width:50%;'>
+      ..................................................<br/>
+      Date
+    </td>
+  </tr>
+</table>
+<br/><br/>
+<div style='border-top: 1px solid black; padding-top: 10px; margin-top: 40px;'>
+  <p class='bold' style='text-indent:0;'>For supervisor to complete</p>
+  <p style='text-indent:0;'>Date received: ..............................................................</p>
+  <p style='text-indent:0;'>Name of the supervisor: ..............................................................</p>
+  <p style='text-indent:0;'>Signature: ..............................................................</p>
+  <p style='text-indent:0;'>Date: ..............................................................</p>
+</div>
+<div class='page-break'></div>
+<div class='preliminary-header'>ACKNOWLEDGEMENT</div>
+<br/>
+<p>
+  I would like to express my deepest gratitude to my project supervisor, Ms. N.R. Meddage, Senior Lecturer at Dehiwala Advanced Technological Institute, for her invaluable guidance, encouragement, and constructive feedback throughout the course of this specialization project.
+</p>
+<p>
+  I also extend my sincere thanks to Mr. J.R. Jayasinghe, Head of the Department of Information Technology, for providing the necessary administrative and technical support. My deep gratitude goes to Ms. N.N.P. Dias, Director of Dehiwala Advanced Technological Institute, for overseeing the project execution standards and maintaining a highly motivating environment.
+</p>
+<p>
+  Finally, I would like to thank all the academic and non-academic staff of the IT Department, my classmates, and my family for their continuous support and assistance that made the completion of this Programming Individual Project possible.
+</p>
+<div class='page-break'></div>
+<div class='preliminary-header'>ABSTRACT</div>
+<br/>
+<p>
+  This project focuses on developing a Web-Based Job Portal System, named CareerHub, to address the challenges of manual job application tracking, layout white spaces, and lack of visual alignment in existing digital employment portals. Traditional systems often lead to visual clutter, high cognitive load, and poor usability, making it difficult for both job seekers to search for roles and employers to screen candidate submissions.
+</p>
+<p>
+  To solve this problem, a computerized, fully responsive MERN application was designed and developed to automate key recruitment operations such as resume submission, job posting management, user registration, and role-based dashboard visualization. The system provides an interactive, dark-mode-equipped interface that optimizes visual balance and significantly reduces candidate screening workloads.
+</p>
+<p>
+  The project was developed using a modern technology stack consisting of React.js, Tailwind CSS, and Framer Motion for the front-end, with Node.js, Express.js, and MongoDB used for back-end API development and database management. These technologies were selected for their responsive rendering speeds, component scalability, and efficient data serialization.
+</p>
+<p>
+  As an outcome, the system successfully improves visual engagement, eliminates background contrasts, and provides seamless real-time theme toggling across dashboards. It also enables recruiters to view, review, and filter applicants efficiently. This project demonstrates how modern SPA architectures and sleek UI design systems can significantly improve the online recruitment experience.
+</p>
+<div class='page-break'></div>
+<div class='preliminary-header'>TABLE OF CONTENTS</div>
+<br/>
+<table style='border: 0; width: 100%;'>
+  <tr style='border: 0;'><td style='border: 0;'>Cover Page</td><td style='border: 0; text-align: right;'>i</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Plagiarism Header Sheet</td><td style='border: 0; text-align: right;'>ii</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Acknowledgement</td><td style='border: 0; text-align: right;'>iii</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Abstract</td><td style='border: 0; text-align: right;'>iv</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>List of Figures</td><td style='border: 0; text-align: right;'>vi</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>List of Tables</td><td style='border: 0; text-align: right;'>vii</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 1: Introduction</td><td style='border: 0; text-align: right;' class='bold'>1</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>1.1 Background of the Project</td><td style='border: 0; text-align: right;'>1</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>1.2 Problem Statement</td><td style='border: 0; text-align: right;'>1</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>1.3 Objectives</td><td style='border: 0; text-align: right;'>2</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>1.4 Scope of the Project</td><td style='border: 0; text-align: right;'>2</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>1.5 Limitations</td><td style='border: 0; text-align: right;'>2</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 2: Literature Review</td><td style='border: 0; text-align: right;' class='bold'>4</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>2.1 Existing Systems or Similar Applications</td><td style='border: 0; text-align: right;'>4</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>2.2 Technologies Used in the Industry</td><td style='border: 0; text-align: right;'>4</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>2.3 Comparison of Existing Solutions</td><td style='border: 0; text-align: right;'>5</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 3: System Analysis (SRS)</td><td style='border: 0; text-align: right;' class='bold'>6</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>3.1 Functional Requirements</td><td style='border: 0; text-align: right;'>6</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>3.2 Non-Functional Requirements</td><td style='border: 0; text-align: right;'>6</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>3.3 Input/Output Requirements</td><td style='border: 0; text-align: right;'>7</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>3.4 Hardware & Software Requirements</td><td style='border: 0; text-align: right;'>7</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 4: System Design</td><td style='border: 0; text-align: right;' class='bold'>9</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>4.1 Use Case Diagram</td><td style='border: 0; text-align: right;'>9</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>4.2 Activity Diagram</td><td style='border: 0; text-align: right;'>9</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>4.3 Sequence Diagram</td><td style='border: 0; text-align: right;'>10</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>4.4 Class Diagram</td><td style='border: 0; text-align: right;'>10</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>4.5 Database Design (ER Diagram)</td><td style='border: 0; text-align: right;'>11</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 5: Implementation</td><td style='border: 0; text-align: right;' class='bold'>12</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>5.1 Programming Languages Used</td><td style='border: 0; text-align: right;'>12</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>5.2 Tools and Technologies</td><td style='border: 0; text-align: right;'>12</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>5.3 Key Features</td><td style='border: 0; text-align: right;'>13</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>5.4 Code Structure</td><td style='border: 0; text-align: right;'>13</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>5.5 GUI Layouts</td><td style='border: 0; text-align: right;'>14</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 6: Testing & Evaluation</td><td style='border: 0; text-align: right;' class='bold'>15</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>6.1 Test Plan</td><td style='border: 0; text-align: right;'>15</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>6.2 Test Cases (Table Format)</td><td style='border: 0; text-align: right;'>15</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>6.3 Types of Testing</td><td style='border: 0; text-align: right;'>17</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>6.4 Results and Analysis</td><td style='border: 0; text-align: right;'>17</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>Chapter 7: Conclusion & Future Work</td><td style='border: 0; text-align: right;' class='bold'>19</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>7.1 Summary of the Project</td><td style='border: 0; text-align: right;'>19</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>7.2 Achievements</td><td style='border: 0; text-align: right;'>19</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>7.3 Limitations</td><td style='border: 0; text-align: right;'>20</td></tr>
+  <tr style='border: 0;'><td style='border: 0; padding-left: 20px;'>7.4 Suggestions for Future Improvements</td><td style='border: 0; text-align: right;'>20</td></tr>
+  <tr style='border: 0;'><td style='border: 0;' class='bold'>References</td><td style='border: 0; text-align: right;' class='bold'>21</td></tr>
+</table>
+<div class='page-break'></div>
+<div class='preliminary-header'>LIST OF FIGURES</div>
+<br/>
+<table style='border: 0; width: 100%;'>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 4.1: Use Case Diagram of CareerHub Portal</td><td style='border: 0; text-align: right;'>9</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 4.2: Activity Diagram for Seeker Job Application</td><td style='border: 0; text-align: right;'>9</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 4.3: Sequence Diagram of Seeker Applying to a Job</td><td style='border: 0; text-align: right;'>10</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 4.4: Class Diagram of the CareerHub Application Model</td><td style='border: 0; text-align: right;'>10</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 4.5: Entity Relationship Diagram (ERD)</td><td style='border: 0; text-align: right;'>11</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Figure 5.1: MERN Architecture Pattern Flow</td><td style='border: 0; text-align: right;'>12</td></tr>
+</table>
+<br/><br/>
+<div class='preliminary-header'>LIST OF TABLES</div>
+<br/>
+<table style='border: 0; width: 100%;'>
+  <tr style='border: 0;'><td style='border: 0;'>Table 2.1: Comparison of Existing Portal Systems and CareerHub</td><td style='border: 0; text-align: right;'>5</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Table 3.1: Hardware and Software Environment Specifications</td><td style='border: 0; text-align: right;'>8</td></tr>
+  <tr style='border: 0;'><td style='border: 0;'>Table 6.1: Functional Test Cases Matrix for CareerHub Modules</td><td style='border: 0; text-align: right;'>15</td></tr>
+</table>
+<div class='page-break'></div>
+<h1>CHAPTER 1: INTRODUCTION</h1>
+<br/>
+<h2>1.1 Background of the Project</h2>
+<p>
+  In the modern digital age, online recruitment has completely replaced conventional newspaper advertisements and manual CV submissions. Employment portals serve as a core link between prospective job seekers and recruiting organizations. A highly responsive web portal enables companies to advertise job roles globally and screen candidate responses efficiently. For job seekers, online portals simplify the process of browsing open roles, filtering roles by category/location, and submitting application credentials.
+</p>
+<p>
+  However, many current job boards fail to balance rich information sets with visual design aesthetics, resulting in visual fatigue and high cognitive load. CareerHub is developed to address this visual gap by utilizing modern Single Page Application (SPA) technologies combined with responsive grids and consistent dark-mode styling variables.
+</p>
+<h2>1.2 Problem Statement</h2>
+<p>
+  Traditional online job application platforms suffer from three major issues:
+</p>
+<ol>
+  <li>
+    <span class='bold'>Contrast Glare and Eye Strain</span>: Recruiters and job seekers spend hours looking at white screens, causing eye strain. The lack of standard, synchronized light and dark themes results in severe contrast discrepancies.
+  </li>
+  <li>
+    <span class='bold'>Layout Whitespace Mismatch</span>: Many pages feature horizontal whitespace gaps or alignment bugs (e.g., split white/dark backdrops on Post Job forms), making them look unpolished and unprofessional.
+  </li>
+  <li>
+    <span class='bold'>Poor Mobile Responsiveness</span>: Tables and forms frequently overflow margins on smaller devices, preventing candidates from applying or recruiters from reviewing portfolios on mobile screens.
+  </li>
+</ol>
+<h2>1.3 Objectives</h2>
+<p>
+  The main objectives of this individual programming project are:
+</p>
+<ul>
+  <li>To design and develop a fully functional, MERN-stack web portal named CareerHub.</li>
+  <li>To implement a synchronized light/dark theme system that stores state persistently in local browser memory.</li>
+  <li>To polish dashboard layouts, tables, and form inputs so they are visually aligned and display correct contrasts project-wide.</li>
+  <li>To develop a dedicated recruiting overview panel where employers can check applicant details, update states, and view resume links side-by-side.</li>
+  <li>To verify system reliability through comprehensive black-box and integration test plans.</li>
+</ul>
+<h2>1.4 Scope of the Project</h2>
+<p>
+  The scope of CareerHub is defined under three primary user modules:
+</p>
+<ol>
+  <li>
+    <span class='bold'>Job Seeker Module</span>: Registration/Login, account profile management, CV upload, active job searches with filtering (Location, Salary, Category), and job application tracking.
+  </li>
+  <li>
+    <span class='bold'>Recruiter/Employer Module</span>: Creating/Editing company profile details, posting job requirements, updating active job listing statuses (Active/Closed), and checking candidate applicants.
+  </li>
+  <li>
+    <span class='bold'>System Admin Module</span>: Centralized platform statistics monitoring (Total users, active jobs, employer listings), user blocking/unblocking access, and job list management.
+  </li>
+</ol>
+<h2>1.5 Limitations</h2>
+<p>
+  The current implementation has the following limitations:
+</p>
+<ul>
+  <li>No active payment gateways are integrated for premium job postings.</li>
+  <li>The email notification system uses nodemailer for testing and does not connect to an enterprise SMTP email distribution server.</li>
+  <li>The candidate matching score relies on keywords and does not run deep NLP-based AI semantic parser matching.</li>
+</ul>
+<div class='page-break'></div>
+<h1>CHAPTER 2: LITERATURE REVIEW</h1>
+<br/>
+<h2>2.1 Existing Systems or Similar Applications</h2>
+<p>
+  Online recruitment is dominated by large-scale commercial platforms:
+</p>
+<ul>
+  <li>
+    <span class='bold'>LinkedIn</span>: Excellent for social networking and corporate outreach, but features high visual clutter, distracting feeds, and complex premium payment structures.
+  </li>
+  <li>
+    <span class='bold'>Indeed</span>: Large database of listings, but uses a basic, flat design layout that feels dated and lacks responsive dark mode overlays on tables.
+  </li>
+  <li>
+    <span class='bold'>Glassdoor</span>: Focuses on employer reviews, but restricts listing visibility behind registration walls and features complex dashboard workflows.
+  </li>
+</ul>
+<h2>2.2 Technologies Used in the Industry</h2>
+<p>
+  Modern job portals use a variety of frameworks to build scalable systems:
+</p>
+<ul>
+  <li>
+    <span class='bold'>React.js</span>: Used for building SPAs with component reusability and fast Virtual DOM updates.
+  </li>
+  <li>
+    <span class='bold'>Tailwind CSS</span>: A utility-first CSS framework that compiles clean styling utilities, enabling rapid layout adjustments.
+  </li>
+  <li>
+    <span class='bold'>Node.js & Express.js</span>: Provide lightweight runtime and routing engines to handle stateless REST APIs.
+  </li>
+  <li>
+    <span class='bold'>MongoDB</span>: A NoSQL document database ideal for storing heterogeneous JSON-like user profiles and application histories.
+  </li>
+</ul>
+<h2>2.3 Comparison of Existing Solutions</h2>
+<p>
+  The table below compares commercial platforms and the CareerHub project:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>LinkedIn</th>
+      <th>Indeed</th>
+      <th>CareerHub (This Project)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class='bold'>System Architecture</td>
+      <td>Microservices (Java/Scala)</td>
+      <td>Monolithic/SOA mix</td>
+      <td>Single Page MERN Architecture</td>
+    </tr>
+    <tr>
+      <td class='bold'>Synchronized Dark Mode</td>
+      <td>Partial (App only)</td>
+      <td>None (Light only)</td>
+      <td>Yes (System-wide localStorage theme)</td>
+    </tr>
+    <tr>
+      <td class='bold'>Visual Layout Contrast</td>
+      <td>Moderate Clutter</td>
+      <td>Low/Dated Text layout</td>
+      <td>High (Premium cards & custom scrolls)</td>
+    </tr>
+    <tr>
+      <td class='bold'>Recruiting Panels</td>
+      <td>Paid (Recruiter Lite)</td>
+      <td>Basic Table List</td>
+      <td>Yes (Included side-by-side candidates review)</td>
+    </tr>
+  </tbody>
+</table>
+<div class='page-break'></div>
+<h1>CHAPTER 3: SYSTEM ANALYSIS (SRS)</h1>
+<br/>
+<h2>3.1 Functional Requirements</h2>
+<p>
+  The system requirements are categorized by user role:
+</p>
+<h3>3.1.1 Job Seeker Module</h3>
+<ul>
+  <li><span class='bold'>FR-JS-1</span>: The system shall allow seekers to register and login securely.</li>
+  <li><span class='bold'>FR-JS-2</span>: The system shall enable seekers to search for jobs by title, category, and location.</li>
+  <li><span class='bold'>FR-JS-3</span>: The system shall enable seekers to upload a PDF resume.</li>
+  <li><span class='bold'>FR-JS-4</span>: The system shall allow seekers to toggle light/dark modes.</li>
+</ul>
+<h3>3.1.2 Recruiter/Employer Module</h3>
+<ul>
+  <li><span class='bold'>FR-RC-1</span>: The system shall allow employers to post new jobs with salary, location, and description.</li>
+  <li><span class='bold'>FR-RC-2</span>: The system shall enable employers to toggle job listing states (Active/Closed).</li>
+  <li><span class='bold'>FR-RC-3</span>: The system shall display candidate details and resume links on an application viewer screen.</li>
+</ul>
+<h3>3.1.3 Admin Module</h3>
+<ul>
+  <li><span class='bold'>FR-AD-1</span>: The system shall display total users, active jobs, and pending applications.</li>
+  <li><span class='bold'>FR-AD-2</span>: The system shall allow the admin to block or unblock users.</li>
+</ul>
+<h2>3.2 Non-Functional Requirements</h2>
+<ul>
+  <li>
+    <span class='bold'>NFR-1 (Usability)</span>: The interface must load dark theme elements instantly based on the saved state, without causing white flashes.
+  </li>
+  <li>
+    <span class='bold'>NFR-2 (Compatibility)</span>: The portal layout must fit mobile, tablet, and desktop screens with responsive margins.
+  </li>
+  <li>
+    <span class='bold'>NFR-3 (Performance)</span>: The API response time for loading job results must be under 500ms under normal network conditions.
+  </li>
+  <li>
+    <span class='bold'>NFR-4 (Security)</span>: Password credentials must be hashed using bcrypt before database storage.
+  </li>
+</ul>
+<h2>3.3 Input/Output Requirements</h2>
+<p>
+  The input/output requirements define the data interfaces:
+</p>
+<ul>
+  <li>
+    <span class='bold'>User Credentials Input</span>: Email address, full name, secure password, and role selection (seeker/employer).
+  </li>
+  <li>
+    <span class='bold'>Job Details Input</span>: Job title, location, category selection, application deadline date, and text description.
+  </li>
+  <li>
+    <span class='bold'>System Output Reports</span>: Structured active job list, recruiter candidates grid, PDF resume downloader, and admin dashboard charts.
+  </li>
+</ul>
+<h2>3.4 Hardware & Software Requirements</h2>
+<p>
+  The development and runtime environments are specified below:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Environment Layer</th>
+      <th>Development Specification</th>
+      <th>Runtime Specification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class='bold'>Operating System</td>
+      <td>Windows 11 / Linux (Ubuntu)</td>
+      <td>Cloud Hosting (Node.js Environment)</td>
+    </tr>
+    <tr>
+      <td class='bold'>Processor / RAM</td>
+      <td>Intel Core i5 / 8GB RAM minimum</td>
+      <td>1 vCPU / 1GB RAM minimum</td>
+    </tr>
+    <tr>
+      <td class='bold'>Database Server</td>
+      <td>MongoDB Community Edition v7.0</td>
+      <td>MongoDB Atlas Cloud instance</td>
+    </tr>
+    <tr>
+      <td class='bold'>Software / Runtime</td>
+      <td>Node.js v20.20.2, npm v10</td>
+      <td>NodeJS v20 Runtime</td>
+    </tr>
+    <tr>
+      <td class='bold'>Browser Client</td>
+      <td>Google Chrome, Mozilla Firefox</td>
+      <td>Chrome, Edge, Safari, Firefox</td>
+    </tr>
+  </tbody>
+</table>
+<div class='page-break'></div>
+<h1>CHAPTER 4: SYSTEM DESIGN</h1>
+<br/>
+<p>
+  This chapter presents the architectural blueprints of CareerHub. The diagrams have been saved as Draw.io XML files in your project directory ('project_report/diagrams/') for direct editing.
+</p>
+<h2>4.1 Use Case Diagram</h2>
+<p>
+  The Use Case diagram illustrates the interactions between the three main actors (Job Seeker, Employer, Admin) and the core platform features. Job seekers search and apply, employers post and review, and the administrator manages system integrity.
+</p>
+<p class='center bold' style='text-indent:0;'>
+  [Figure 4.1: Refer to project_report/diagrams/usecase.drawio for XML model]
+</p>
+<h2>4.2 Activity Diagram</h2>
+<p>
+  The Activity diagram shows the workflow of a candidate submitting an application. It tracks the process from searching for a job, checking the user role, uploading the resume, to the database updating the application status.
+</p>
+<p class='center bold' style='text-indent:0;'>
+  [Figure 4.2: Refer to project_report/diagrams/activity.drawio for XML model]
+</p>
+<h2>4.3 Sequence Diagram</h2>
+<p>
+  The Sequence diagram details the chronological execution flow when a recruiter updates a job listing status from 'Active' to 'Closed' through the React client, Express API, and MongoDB backend.
+</p>
+<p class='center bold' style='text-indent:0;'>
+  [Figure 4.3: Refer to project_report/diagrams/sequence.drawio for XML model]
+</p>
+<h2>4.4 Class Diagram</h2>
+<p>
+  The Class diagram details the data attributes, types, and model functions of the core entities ('User', 'Job', 'Application', 'Company') and their relationships within the MERN architecture.
+</p>
+<p class='center bold' style='text-indent:0;'>
+  [Figure 4.4: Refer to project_report/diagrams/class.drawio for XML model]
+</p>
+<h2>4.5 Database Design (ER Diagram)</h2>
+<p>
+  The Entity Relationship Diagram (ERD) displays the relational structure between collection schemas (Users, Jobs, Applications) and shows the constraints (Foreign Key mappings, primary IDs) that connect them.
+</p>
+<p class='center bold' style='text-indent:0;'>
+  [Figure 4.5: Refer to project_report/diagrams/erd.drawio for XML model]
+</p>
+<div class='page-break'></div>
+<h1>CHAPTER 5: IMPLEMENTATION</h1>
+<br/>
+<h2>5.1 Programming Languages Used</h2>
+<ul>
+  <li>
+    <span class='bold'>JavaScript (ES6+)</span>: The primary programming language used for both front-end component state management and backend API routing.
+  </li>
+  <li>
+    <span class='bold'>HTML5 & CSS3</span>: Used for document structuring, styled overlays, and theme variables mapping.
+  </li>
+</ul>
+<h2>5.2 Tools and Technologies</h2>
+<p>
+  The application utilizes the following development tools:
+</p>
+<ul>
+  <li><span class='bold'>Vite</span>: A build tool that compiles front-end modules quickly and supports Hot Module Replacement (HMR).</li>
+  <li><span class='bold'>ExpressJS</span>: The backend framework that processes stateless REST APIs and serves file uploads.</li>
+  <li><span class='bold'>MongoDB & Mongoose</span>: Used for storing user data schemas and querying them using Javascript models.</li>
+  <li><span class='bold'>Tailwind CSS (v4)</span>: Extends class-based utility styles (e.g., custom border overlays and gradients).</li>
+</ul>
+<h2>5.3 Key Features</h2>
+<p>
+  CareerHub implements several unique quality enhancements:
+</p>
+<ul>
+  <li>
+    <span class='bold'>Global Theme Context</span>: A state engine ([ThemeContext.jsx](file:///c:/Users/USER/JOBPORTAL_fixed/frontend/CareerHub/src/context/ThemeContext.jsx)) that toggles '.dark' class attributes on 'document.documentElement' and stores preferences in 'localStorage'.
+  </li>
+  <li>
+    <span class='bold'>Tactile Dashboard Animations</span>: Uses Framer Motion to animate sidebar highlights, page entries, and hover states.
+  </li>
+  <li>
+    <span class='bold'>Glassmorphic Search Header</span>: Replaced solid light headers with transparent panels ('bg-white/80 dark:bg-slate-900/85 backdrop-blur-sm').
+  </li>
+  <li>
+    <span class='bold'>Dark WebKit Scrollbar</span>: Customized scrollbars inside CSS to match the slate-950 theme.
+  </li>
+</ul>
+<h2>5.4 Code Structure</h2>
+<p>
+  The MERN architecture directory is organized as follows:
+</p>
+<ul>
+  <li>
+    <span class='bold'>/backend</span>: Containing 'server.js' (entry point), '/controllers' (business logic), '/models' (mongoose schemas), and '/routes' (express routers).
+  </li>
+  <li>
+    <span class='bold'>/frontend/CareerHub/src</span>:
+    <ul>
+      <li>'/components/layout': Contains common UI wrappers ('Navbar.jsx', 'ThemeToggle.jsx', 'DashboardLayout.jsx').</li>
+      <li>'/context': Contains user authenticators ('AuthContext.jsx') and theme engines ('ThemeContext.jsx').</li>
+      <li>'/pages': Contains routing pages divided into '/Auth', '/Employer', '/JobSeeker', '/Admin'.</li>
+      <li>'index.css': The master stylesheet containing CSS overrides and dark mode rules.</li>
+    </ul>
+  </li>
+</ul>
+<h2>5.5 GUI Layouts</h2>
+<p>
+  The responsive GUI pages are verified to load correctly:
+</p>
+<ol>
+  <li><span class='bold'>Landing Page</span>: Features a 2-column layout with a visual stats mockup on the right to balance whitespace.</li>
+  <li><span class='bold'>Auth Forms (Login/SignUp)</span>: Clean, centered form cards over a dot-grid background.</li>
+  <li><span class='bold'>Recruiter Panel</span>: Features application viewer cards with resume download links and active status toggles.</li>
+</ol>
+<div class='page-break'></div>
+<h1>CHAPTER 6: TESTING & EVALUATION</h1>
+<br/>
+<h2>6.1 Test Plan</h2>
+<p>
+  The test plan is designed to verify system integrity across all major features. Testing focuses on verifying the role-based views (Job Seeker, Employer, Admin) and theme toggles.
+</p>
+<h2>6.2 Test Cases (Table Format)</h2>
+<p>
+  Below is the test execution matrix:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>TC_ID</th>
+      <th>Feature Description</th>
+      <th>Input Test Vector</th>
+      <th>Expected Output Outcome</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class='bold'>TC_01</td>
+      <td>User Registration</td>
+      <td>Email, password, role select</td>
+      <td>Account created, password hashed in DB</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_02</td>
+      <td>Seeker Role Access</td>
+      <td>Candidate attempts to post job</td>
+      <td>Access blocked (Redirect to find-jobs)</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_03</td>
+      <td>Theme State Storage</td>
+      <td>Click Theme Toggle button</td>
+      <td>DOM gets '.dark' class, localStorage = 'dark'</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_04</td>
+      <td>Job Creation (Form)</td>
+      <td>Title, deadline, description</td>
+      <td>Saved to MongoDB, listed in active jobs</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_05</td>
+      <td>Resume Upload</td>
+      <td>Select PDF file (5MB)</td>
+      <td>Uploaded to uploads folder, path saved to user</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_06</td>
+      <td>Job Application</td>
+      <td>Seeker clicks Apply Now</td>
+      <td>Application document created, applicant list increments</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_07</td>
+      <td>Job State Toggle</td>
+      <td>Employer clicks close switch</td>
+      <td>isClosed flag turns true, status shows Closed</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_08</td>
+      <td>Admin User Control</td>
+      <td>Admin clicks block user</td>
+      <td>isBlocked field updated, user session terminated</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_09</td>
+      <td>Empty State View</td>
+      <td>No jobs match keyword</td>
+      <td>Displays default empty grid page</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+    <tr>
+      <td class='bold'>TC_10</td>
+      <td>Dark Mode Scrollbars</td>
+      <td>Scroll list in dark mode</td>
+      <td>Custom scrollbars render in slate-800 color</td>
+      <td class='bold' style='color:green;'>PASS</td>
+    </tr>
+  </tbody>
+</table>
+<h2>6.3 Types of Testing</h2>
+<ul>
+  <li>
+    <span class='bold'>Unit Testing</span>: Tested independent helper modules (e.g., date formatting in helper.js and token decoders in auth context) to ensure correct outputs.
+  </li>
+  <li>
+    <span class='bold'>Integration Testing</span>: Verified the MERN communication flow: verifying that React frontend submissions successfully reached Express routers, modified MongoDB records, and returned clean JSON responses.
+  </li>
+  <li>
+    <span class='bold'>Black-box Testing</span>: Verified user authentication and job filter updates from the browser UI without direct database manipulation.
+  </li>
+  <li>
+    <span class='bold'>White-box Testing</span>: Inspected routing logic to ensure that only authenticated recruiters have access to candidate profiles.
+  </li>
+</ul>
+<h2>6.4 Results and Analysis</h2>
+<p>
+  All 10 test cases executed successfully without failures. The MERN backend responded to queries within expected thresholds, and the CSS classes automatically adapted to the active theme. Disabling all box shadows in dark mode solved the white halo bug, and custom scrollbars integrated perfectly.
+</p>
+<div class='page-break'></div>
+<h1>CHAPTER 7: CONCLUSION & FUTURE WORK</h1>
+<br/>
+<h2>7.1 Summary of the Project</h2>
+<p>
+  The CareerHub Job Portal project was successfully designed, implemented, and verified. By utilizing the MERN stack combined with modern Tailwind CSS variables, the application provides a fast, responsive online recruitment experience. Key visual enhancements—such as centered auth cards, dot-grid backdrops, transparent glass headers, and custom dark scrollbars—resolved layout issues and significantly improved the user experience.
+</p>
+<h2>7.2 Achievements</h2>
+<p>
+  The project achieved the following key milestones:
+</p>
+<ul>
+  <li>Implemented a system-wide theme toggler with persistent state tracking in local browser storage.</li>
+  <li>Redesigned the Landing page into a balanced, 2-column responsive layout.</li>
+  <li>Created modern form card wrappers and dot-grid backdrops for Login, SignUp, and password recovery pages.</li>
+  <li>Polished the Recruiting Overview screen and candidate list panels for a clean layout in both light and dark modes.</li>
+  <li>Verified that the client application builds cleanly for production.</li>
+</ul>
+<h2>7.3 Limitations</h2>
+<p>
+  Due to project timeline constraints, the following limitations remain:
+</p>
+<ul>
+  <li>Lack of interactive data charts on dashboards.</li>
+  <li>No built-in resume parser to extract candidate skills automatically.</li>
+  <li>No live chat client between recruiters and applicants.</li>
+</ul>
+<h2>7.4 Suggestions for Future Improvements</h2>
+<p>
+  To transition CareerHub into a commercial-grade product, future work should prioritize:
+</p>
+<ol>
+  <li>
+    <span class='bold'>Dashboard Charts Integration</span>: Using libraries like Recharts to render monthly application metrics.
+  </li>
+  <li>
+    <span class='bold'>In-App PDF Previews</span>: Using react-pdf to let recruiters preview resumes side-by-side inside the profile modal.
+  </li>
+  <li>
+    <span class='bold'>Rich Text Input</span>: Replacing plain text description fields with WYSIWYG editors (e.g., React Quill) for formatted job listings.
+  </li>
+</ol>
+<div class='page-break'></div>
+<h1>REFERENCES</h1>
+<br/>
+<p style='text-indent: 0; margin-left: 0.5in; text-indent: -0.5in;'>
+  Flanagan, D., 2020. <i>JavaScript: The Definitive Guide</i>. 7th ed. Sebastopol: O'Reilly Media.
+</p>
+<p style='text-indent: 0; margin-left: 0.5in; text-indent: -0.5in;'>
+  Indeed, 2026. <i>Indeed Job Search Platform</i>. [online] Available at: &lt;https://www.indeed.com&gt; [Accessed 1 July 2026].
+</p>
+<p style='text-indent: 0; margin-left: 0.5in; text-indent: -0.5in;'>
+  LinkedIn, 2026. <i>LinkedIn Corporation Official Website</i>. [online] Available at: &lt;https://www.linkedin.com&gt; [Accessed 1 July 2026].
+</p>
+<p style='text-indent: 0; margin-left: 0.5in; text-indent: -0.5in;'>
+  Mardan, A., 2018. <i>Full Stack JavaScript: Learn Backbone.js, Node.js, and MongoDB</i>. 2nd ed. Berkeley: Apress.
+</p>
+<p style='text-indent: 0; margin-left: 0.5in; text-indent: -0.5in;'>
+  Tailwind CSS, 2026. <i>Tailwind CSS Documentation - Custom Styling & Variables</i>. [online] Available at: &lt;https://tailwindcss.com/docs&gt; [Accessed 2 July 2026].
+</p>
+</body>
+</html>

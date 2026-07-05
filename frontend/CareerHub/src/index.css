@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+--font-display: "Urbanist" , sans-serif;
+--breakpoint-3xl: 1920px;
+
+/* ===== CareerHub Design System ===== */
+/* Primary — Indigo: buttons, links, active states, primary CTAs */
+--color-primary: #4F46E5;
+--color-primary-dark: #4338CA;
+--color-primary-light: #EEF2FF;
+
+/* Accent — Violet: paired with Primary in gradients only (headings, hero CTAs) */
+--color-accent: #7C3AED;
+
+/* Success — Emerald: accepted status, salary/positive indicators */
+--color-success: #10B981;
+--color-success-light: #ECFDF5;
+
+/* Danger — Rose: rejected status, destructive actions */
+--color-danger: #EF4444;
+--color-danger-light: #FEF2F2;
+
+/* Warning — Amber: pending/in-review status */
+--color-warning: #F59E0B;
+--color-warning-light: #FFFBEB;
+
+/* Neutrals — Slate: replaces plain gray everywhere for a warmer, more intentional feel */
+--color-ink: #0F172A;
+--color-muted: #64748B;
+--color-surface: #F8FAFC;
+}
+
+@layer base{
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #f7fafe;
+    color: #0F172A;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    overflow-x: hidden;
+  }
+
+  html.dark body {
+    background-color: #030712; /* Slate-950 */
+    color: #f8fafc;
+  }
+
+  /* Global dark-mode mapping overrides (SaaS-style fixes for dashboard cards and typography) */
+  html.dark {
+    /* Globally disable all shadows in dark mode to remove white neon halos */
+    *, *::before, *::after {
+      box-shadow: none !important;
+    }
+
+    /* Background overrides */
+    .bg-white {
+      background-color: #0b0f19 !important; /* Slate-900 / Zinc-900 style */
+    }
+    .bg-gray-50, .bg-slate-50 {
+      background-color: #030712 !important; /* Slate-950 */
+    }
+    .bg-gray-100, .bg-slate-100 {
+      background-color: #1e293b !important; /* Slate-800 */
+    }
+    
+    /* Mapped background opacity variants */
+    .bg-gray-50\/50, .bg-slate-50\/50, .bg-slate-50\/30, .bg-blue-50\/30, .bg-purple-50\/30 {
+      background-color: #030712 !important;
+    }
+
+    /* Handle gradient backgrounds that start from light shades (Job Seekers dashboard, post forms etc.) */
+    .from-blue-50, .from-slate-50, .from-gray-50 {
+      background-image: none !important;
+      background-color: #030712 !important;
+    }
+    
+    /* Handle input container gradients starting from white (Post Job form etc.) */
+    .from-white {
+      background-image: none !important;
+      background-color: #0b0f19 !important;
+    }
+    
+    /* Handle transparent glassmorphic white containers (Search headers, Sidebars) */
+    .bg-white\/80 {
+      background-color: rgba(11, 15, 25, 0.85) !important; /* Slate-900 with 85% opacity */
+    }
+    .bg-white\/50 {
+      background-color: rgba(3, 7, 18, 0.5) !important; /* Slate-950 with 50% opacity */
+    }
+    .bg-white\/60 {
+      background-color: rgba(11, 15, 25, 0.6) !important;
+    }
+    .bg-white\/10 {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+    
+    /* Border overrides */
+    .border-gray-100, .border-slate-100, .border-gray-200, .border-slate-200, .divide-gray-100, .divide-slate-100 {
+      border-color: #1e293b !important; /* Slate-800 */
+    }
+    .border-white\/20 {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+    
+    /* Text color overrides */
+    .text-gray-900, .text-slate-900 {
+      color: #f8fafc !important; /* Slate-50 */
+    }
+    .text-gray-800, .text-slate-800 {
+      color: #f1f5f9 !important; /* Slate-100 */
+    }
+    .text-gray-700, .text-slate-700 {
+      color: #cbd5e1 !important; /* Slate-300 */
+    }
+    .text-gray-600, .text-slate-600 {
+      color: #94a3b8 !important; /* Slate-400 */
+    }
+    .text-gray-500, .text-slate-500 {
+      color: #64748b !important; /* Slate-500 */
+    }
+
+    /* Primary color class highlights */
+    .text-blue-700, .text-blue-600 {
+      color: #60a5fa !important;
+    }
+    .text-green-700, .text-green-800, .text-green-600, .text-emerald-700, .text-emerald-600, .text-green-750 {
+      color: #34d399 !important;
+    }
+    .text-red-700, .text-red-600, .text-red-750 {
+      color: #f87171 !important;
+    }
+    .text-yellow-700, .text-yellow-800, .text-yellow-600, .text-orange-700, .text-orange-600 {
+      color: #fbbf24 !important;
+    }
+    .text-purple-800, .text-violet-600, .text-violet-700 {
+      color: #c084fc !important;
+    }
+
+    /* Badge & Tag color overrides (Opacity glow styling) */
+    .bg-green-100, .bg-emerald-100 {
+      background-color: rgba(16, 185, 129, 0.15) !important;
+      color: #34d399 !important;
+    }
+    .bg-yellow-100 {
+      background-color: rgba(245, 158, 11, 0.15) !important;
+      color: #fbbf24 !important;
+    }
+    .bg-purple-100, .bg-violet-100 {
+      background-color: rgba(139, 92, 246, 0.15) !important;
+      color: #a78bfa !important;
+    }
+    .bg-blue-100 {
+      background-color: rgba(59, 130, 246, 0.15) !important;
+      color: #60a5fa !important;
+    }
+    .bg-gray-100 {
+      background-color: rgba(148, 163, 184, 0.15) !important;
+      color: #cbd5e1 !important;
+    }
+    .bg-red-100 {
+      background-color: rgba(239, 68, 68, 0.15) !important;
+      color: #f87171 !important;
+    }
+
+    /* Action buttons/icons overrides (Light backgrounds mapped to transparent glows) */
+    .bg-blue-50 {
+      background-color: rgba(59, 130, 246, 0.12) !important;
+      color: #60a5fa !important;
+    }
+    .bg-green-50, .bg-emerald-50 {
+      background-color: rgba(16, 185, 129, 0.12) !important;
+      color: #34d399 !important;
+    }
+    .bg-orange-50, .bg-yellow-50 {
+      background-color: rgba(245, 158, 11, 0.12) !important;
+      color: #fbbf24 !important;
+    }
+    .bg-red-50 {
+      background-color: rgba(239, 68, 68, 0.12) !important;
+      color: #f87171 !important;
+    }
+    .bg-violet-50 {
+      background-color: rgba(139, 92, 246, 0.12) !important;
+      color: #c084fc !important;
+    }
+
+    /* Hover backgrounds */
+    .hover\:bg-gray-50:hover, .hover\:bg-slate-50:hover, .hover\:bg-gray-50\/70:hover, .hover\:bg-slate-50\/70:hover {
+      background-color: #1e293b !important;
+    }
+    .hover\:bg-gray-100:hover, .hover\:bg-slate-100:hover {
+      background-color: #1e293b !important;
+    }
+    
+    /* Table headers & status dropdown overrides in dark mode */
+    .bg-gray-50\/60, .bg-slate-50\/60 {
+      background-color: #0b0f19 !important; /* Mapped to Slate-900 card style */
+    }
+    .bg-gray-200\/95 {
+      background-color: rgba(30, 41, 59, 0.95) !important; /* Slate-800 backdrop overlay */
+      border-color: #334155 !important;
+    }
+    .text-gray-800 {
+      color: #cbd5e1 !important; /* Slate-300 text inside dropdowns */
+    }
+    .hover\:bg-white\/40:hover {
+      background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* Form input fields & Dropdowns theme normalization */
+    input, select, textarea {
+      background-color: #0b0f19 !important; /* Slate-900 */
+      color: #f8fafc !important;
+      border-color: #1e293b !important;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #475569 !important; /* Slate-600 */
+    }
+
+    /* Datepicker styling overrides inside post job form */
+    .job-deadline-picker .react-datepicker__input-container input {
+      color: #f8fafc !important;
+    }
+    .job-deadline-picker .react-datepicker {
+      background-color: #0b0f19 !important;
+      border-color: #1e293b !important;
+    }
+    .job-deadline-picker .react-datepicker__day {
+      color: #cbd5e1 !important;
+    }
+    .job-deadline-picker .react-datepicker__day:hover {
+      background-color: #1e293b !important;
+      color: #60a5fa !important;
+    }
+
+    /* Custom dark scrollbar styling for a polished look */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+      border: 2px solid #030712;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  }
+}

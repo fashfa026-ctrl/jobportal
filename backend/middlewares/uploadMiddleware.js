@@ -6,8 +6,11 @@ const fs = require("fs");
 // relative "uploads/" path (which depends on process.cwd() — the directory
 // Node was launched from — and breaks if the server is started from
 // anywhere other than backend/).
-const uploadsDir = path.join(__dirname, "..", "uploads");
-if (!fs.existsSync(uploadsDir)) {
+const uploadsDir = process.env.VERCEL
+  ? "/tmp"
+  : path.join(__dirname, "..", "uploads");
+
+if (!process.env.VERCEL && !fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 

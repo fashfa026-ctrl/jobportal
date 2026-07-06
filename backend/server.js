@@ -35,8 +35,8 @@ app.use(express.json());
 // ✅ FIX: auto-create the uploads/ folder on startup if it doesn't exist yet.
 // Multer's diskStorage throws ENOENT (which surfaces as a 500) if this
 // directory is missing — this guarantees it always exists.
-const uploadsDir = path.join(__dirname, "uploads");
-if (!fs.existsSync(uploadsDir)) {
+const uploadsDir = process.env.VERCEL ? "/tmp" : path.join(__dirname, "uploads");
+if (!process.env.VERCEL && !fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
   console.log("📁 Created missing uploads/ directory");
 }
@@ -66,3 +66,5 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;

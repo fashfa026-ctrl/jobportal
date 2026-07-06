@@ -100,7 +100,7 @@ const AdminApplications = () => {
                         <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
                           {app.applicant?.avatar ? (
                             <img
-                              src={app.applicant.avatar.startsWith("http") ? app.applicant.avatar : `http://localhost:8000${app.applicant.avatar}`}
+                              src={app.applicant.avatar.startsWith("http") ? app.applicant.avatar : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${app.applicant.avatar}`}
                               className="w-9 h-9 rounded-full object-cover"
                             />
                           ) : (

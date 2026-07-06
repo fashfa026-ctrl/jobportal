@@ -59,7 +59,7 @@ const JobPostingPreview = ({ formData, setIsPreview }) => {
     src={
       user.companyLogo.startsWith("http")
         ? user.companyLogo
-        : encodeURI(`http://localhost:8000${user.companyLogo.startsWith("/") ? "" : "/"}${user.companyLogo}`)
+        : encodeURI(`${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${user.companyLogo.startsWith("/") ? "" : "/"}${user.companyLogo}`)
     }
     alt="Company Logo"
     className="h-14 w-14 object-cover rounded-xl border border-gray-200"

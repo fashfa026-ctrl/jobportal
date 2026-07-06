@@ -110,7 +110,7 @@ const AdminJobs = () => {
       src={
         job.company.companyLogo.startsWith("http")
           ? job.company.companyLogo
-          : `http://localhost:8000${job.company.companyLogo}`
+          : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${job.company.companyLogo}`
       }
       alt="logo"
       className="w-full h-full object-cover"

@@ -84,7 +84,7 @@ const AdminEmployers = () => {
                         <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
                           {employer.avatar ? (
                             <img
-                              src={employer.avatar.startsWith("http") ? employer.avatar : `http://localhost:8000${employer.avatar}`}
+                              src={employer.avatar.startsWith("http") ? employer.avatar : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${employer.avatar}`}
                               className="w-full h-full object-cover"
                             />
                           ) : (
@@ -106,7 +106,7 @@ const AdminEmployers = () => {
                         {employer.companyLogo ? (
                           // ✅ மாற்றவும்
 <img
-  src={employer.companyLogo.startsWith("http") ? employer.companyLogo : `http://localhost:8000${employer.companyLogo}`}
+  src={employer.companyLogo.startsWith("http") ? employer.companyLogo : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${employer.companyLogo}`}
   className="w-8 h-8 rounded-lg object-cover border border-gray-200"
 />
                         ) : (

@@ -13,7 +13,7 @@ const getUrl = (path) => {
   if (!path) return "";
   return path.startsWith("http")
     ? path
-    : `http://localhost:8000${path.startsWith("/") ? "" : "/"}${path}`;
+    : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${path.startsWith("/") ? "" : "/"}${path}`;
 };
 
 const statusOptions = [

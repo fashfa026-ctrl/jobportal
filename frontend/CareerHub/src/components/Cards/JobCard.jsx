@@ -24,7 +24,7 @@ const JobCard = ({ job, onClick, onToggleSave, onApply, saved, hideApply }) => {
 
   const getLogoUrl = (logo) => {
     if (!logo) return null;
-    const base = "http://localhost:8000";
+    const base = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000");
     return logo.startsWith("http") ? logo : encodeURI(`${base}${logo.startsWith("/") ? "" : "/"}${logo}`);
   };
 

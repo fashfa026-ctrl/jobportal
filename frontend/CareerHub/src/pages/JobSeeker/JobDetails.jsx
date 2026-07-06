@@ -112,7 +112,7 @@ const JobDetails = () => {
                         src={
                           jobDetails.company.companyLogo.startsWith("http")
                             ? jobDetails.company.companyLogo
-                            : `http://localhost:8000${jobDetails.company.companyLogo}`
+                            : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${jobDetails.company.companyLogo}`
                         }
                         alt="Company Logo"
                         className="h-14 w-14 object-cover rounded-2xl border border-slate-200"
@@ -302,7 +302,7 @@ const JobDetails = () => {
                       <img
                         src={jobDetails.company.companyLogo.startsWith("http")
                           ? jobDetails.company.companyLogo
-                          : `http://localhost:8000${jobDetails.company.companyLogo}`}
+                          : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${jobDetails.company.companyLogo}`}
                         alt="Logo"
                         className="h-12 w-12 rounded-xl object-cover border border-slate-200"
                       />

@@ -12,7 +12,7 @@ const EmployerProfilePage = () => {
   const getUrl = (url) => {
     if (!url) return "";
     if (url.startsWith("http") || url.startsWith("blob:")) return url;
-    return `http://localhost:8000${url.startsWith("/") ? "" : "/"}${url}`;
+    return `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${url.startsWith("/") ? "" : "/"}${url}`;
   };
 
   const [profileData, setProfileData] = useState({

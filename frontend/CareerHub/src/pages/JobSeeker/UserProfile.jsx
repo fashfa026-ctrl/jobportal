@@ -43,7 +43,7 @@ const UserProfile = () => {
         user.avatar
           ? user.avatar.startsWith("http")
             ? user.avatar
-            : `http://localhost:8000${user.avatar}`
+            : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${user.avatar}`
           : ""
       );
     }
@@ -299,7 +299,7 @@ const UserProfile = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => window.open(
-                        user.resume.startsWith("http") ? user.resume : `http://localhost:8000${user.resume}`,
+                        user.resume.startsWith("http") ? user.resume : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${user.resume}`,
                         "_blank"
                       )}
                       className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition" title="Download"

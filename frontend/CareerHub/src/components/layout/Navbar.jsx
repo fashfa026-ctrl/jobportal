@@ -28,7 +28,7 @@ const Navbar = () => {
     if (!url || typeof url !== "string")
       return "https://cdn-icons-png.flaticon.com/512/149/149071.png";
     if (url.startsWith("http") || url.startsWith("blob:")) return url;
-    const base = "http://localhost:8000";
+    const base = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000");
     const cleanPath = url.startsWith("/") ? url : `/${url}`;
     return encodeURI(`${base}${cleanPath}`);
   };

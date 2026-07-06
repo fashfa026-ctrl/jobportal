@@ -13,7 +13,7 @@ const Header = () => {
   const getUrl = (url) => {
     if (!url) return "https://cdn-icons-png.flaticon.com/512/149/149071.png";
     if (url.startsWith("http") || url.startsWith("blob:")) return url;
-    return `http://localhost:8000${url.startsWith("/") ? "" : "/"}${url}`;
+    return `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${url.startsWith("/") ? "" : "/"}${url}`;
   };
 
   return (

@@ -109,7 +109,7 @@ const AdminUsers = () => {
                         <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
                           {user.avatar ? (
                             <img
-                              src={user.avatar.startsWith("http") ? user.avatar : `http://localhost:8000${user.avatar}`}
+                              src={user.avatar.startsWith("http") ? user.avatar : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${user.avatar}`}
                               className="w-9 h-9 rounded-full object-cover"
                             />
                           ) : (

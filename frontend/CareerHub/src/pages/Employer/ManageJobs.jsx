@@ -183,7 +183,7 @@ const ManageJobs = () => {
       logo: job?.company?.companyLogo
   ? job.company.companyLogo.startsWith("http")
     ? job.company.companyLogo
-    : `http://localhost:8000${job.company.companyLogo}`
+    : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${job.company.companyLogo}`
   : null,
     }));
 

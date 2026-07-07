@@ -7,7 +7,6 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "careerhub_uploads",
-    allowed_formats: ["jpg", "png", "jpeg", "pdf"],
     resource_type: "auto", // Allows PDF resumes as raw resources and images as image resources
   },
 });

@@ -105,9 +105,7 @@ exports.register = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const avatar = req.file
-      ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
-      : "";
+    const avatar = req.file ? req.file.path : "";
 
     const user = await User.create({
       fullName,

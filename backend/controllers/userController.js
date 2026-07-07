@@ -49,13 +49,13 @@ exports.updateProfile = async (req, res) => {
     if (fullName) user.fullName = fullName;
 
     if (req.files?.avatar) {
-      user.avatar = `/uploads/${req.files.avatar[0].filename}`;
+      user.avatar = req.files.avatar[0].path;
     }
     if (req.files?.resume) {
-      user.resume = `/uploads/${req.files.resume[0].filename}`;
+      user.resume = req.files.resume[0].path;
     }
     if (req.files?.companyLogo) {
-      user.companyLogo = `/uploads/${req.files.companyLogo[0].filename}`;
+      user.companyLogo = req.files.companyLogo[0].path;
     }
 
     if (user.role === "employer") {
@@ -92,7 +92,7 @@ exports.deleteResume = async (req, res) => {
     const user = await User.findById(req.user._id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    if (user.resume) {
+    if (user.resume && !user.resume.startsWith("http")) {
       const filePath = path.join(__dirname, "..", user.resume);
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);

@@ -26,8 +26,16 @@ app.use(
   })
 );
 
-// Connect Database
-connectDB();
+// Connect Database Middleware
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("Database connection middleware error:", err.message);
+    res.status(500).json({ message: "Database connection failed" });
+  }
+});
 
 // Middleware
 app.use(express.json());

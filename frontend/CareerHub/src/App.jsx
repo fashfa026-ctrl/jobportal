@@ -27,6 +27,8 @@ import AdminUsers from "./pages/Admin/AdminUsers";
 import AdminEmployers from "./pages/Admin/AdminEmployers";
 import AdminJobs from "./pages/Admin/AdminJobs";
 import AdminApplications from "./pages/Admin/AdminApplications";
+import AdminReports from "./pages/Admin/AdminReports";
+import AdminFeedback from "./pages/Admin/AdminFeedback";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
@@ -69,6 +71,8 @@ const App = () => {
             <Route path="/admin/employers" element={<AdminEmployers />} />
             <Route path="/admin/jobs" element={<AdminJobs />} />
             <Route path="/admin/applications" element={<AdminApplications />} />
+            <Route path="/admin/reports" element={<AdminReports />} />
+            <Route path="/admin/feedback" element={<AdminFeedback />} />
           </Route>
 
           {/* Catch all */}

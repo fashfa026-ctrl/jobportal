@@ -86,8 +86,20 @@ const JobDetails = () => {
     }
   };
 
-  const handleReport = () => {
-    toast.success("Thanks for letting us know. Our team will review this listing.");
+  const handleReport = async () => {
+    const reason = prompt("Why are you reporting this job?");
+    if (reason === null) return; // User cancelled the prompt
+    if (!reason.trim()) {
+      toast.error("Please provide a reason for reporting.");
+      return;
+    }
+
+    try {
+      await axiosInstance.post("/api/reports", { jobId, reason });
+      toast.success("Thanks for letting us know. Our team will review this listing.");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to submit report. Please try again.");
+    }
   };
 
   return (

@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import {
   Briefcase,
   Bookmark,
+  Menu,
+  X,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import { useAuth } from "../../context/AuthContext";
 import ProfileDropdown from "./ProfileDropdown";
 import ThemeToggle from "./ThemeToggle";
@@ -12,6 +15,7 @@ const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = () => {
@@ -40,9 +44,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to='/find-jobs' className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <Briefcase className="w-5 h-5 text-white" />
-            </div>
+            <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
             <span className="text-lg font-bold text-gray-900 dark:text-white">CareerHub</span>
           </Link>
 
@@ -102,9 +104,46 @@ const Navbar = () => {
                 </Link>
               </>
             )}
+
+            {/* Mobile Burger Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-900 text-gray-500 dark:text-slate-400 transition"
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Links Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-gray-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-colors duration-200">
+          <Link
+            to="/find-jobs"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-1"
+          >
+            Find Jobs
+          </Link>
+          <Link
+            to="/for-employers"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-1"
+          >
+            For Employers
+          </Link>
+          {isAuthenticated && user?.role === "admin" && (
+            <Link
+              to="/admin/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-1"
+            >
+              Admin Panel
+            </Link>
+          )}
+        </div>
+      )}
     </header>
   );
 };

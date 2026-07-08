@@ -14,6 +14,8 @@ const savedJobsRoutes = require("./routes/savedJobRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
 const statsRoutes = require("./routes/statsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const reportRoutes = require("./routes/reportRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 
 const app = express();
 
@@ -66,6 +68,8 @@ app.use("/api/applications", applicationRoutes);
 app.use("/api/saved-jobs", savedJobsRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/reports", reportRoutes);
+app.use("/api/feedback", feedbackRoutes);
 app.use("/api/stats", statsRoutes);
 
 // Start Server

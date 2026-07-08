@@ -10,6 +10,8 @@ import {
   Building2,
   ChevronLeft,
   ChevronRight,
+  AlertTriangle,
+  Mail,
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import ThemeToggle from "./ThemeToggle";
@@ -21,6 +23,8 @@ const navItems = [
     { id: "employers", label: "Employers", path: "/admin/employers", icon: Building2 },
   { id: "jobs", label: "Jobs", path: "/admin/jobs", icon: Briefcase },
   { id: "applications", label: "Applications", path: "/admin/applications", icon: FileText },
+  { id: "reports", label: "Reported Jobs", path: "/admin/reports", icon: AlertTriangle },
+  { id: "feedback", label: "Feedback", path: "/admin/feedback", icon: Mail },
 ];
 
 const AdminLayout = ({ children }) => {

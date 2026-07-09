@@ -1,0 +1,11 @@
+- [x] Implement database connection middleware for serverless requests
+- [x] Add vercel.json SPA rewrite routing to frontend/CareerHub
+- [x] Implement Job Report database schema, controller, and routes
+- [x] Update JobDetails.jsx with report button and Axios submit
+- [x] Create AdminReports.jsx table view and review actions
+- [x] Add mobile hamburger navigation drawer to Navbar.jsx
+- [x] Replace Briefcase icon with logo, copy logo.png, and update site favicon
+- [x] Implement Contact & Feedback database schema, controller, and routes
+- [x] Add Contact/Feedback form to Landing Page Footer.jsx
+- [x] Create AdminFeedback.jsx message inbox panel and read actions
+- [x] Run production build verification (Success)

@@ -15,6 +15,7 @@ import {
 import axiosInstance from "../utils/axiosInstance";
 import { API_PATHS } from "../utils/apiPaths";
 import { useAuth } from "../../context/AuthContext";
+import logo from "../../assets/logo.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -125,9 +126,7 @@ const Login = () => {
 
         {/* Top Branding */}
         <div className="flex items-center space-x-3 text-white z-10">
-          <div className="w-9 h-9 bg-white/20 backdrop-blur-md rounded-lg flex items-center justify-center">
-            <Briefcase className="w-5 h-5 text-white" />
-          </div>
+          <img src={logo} alt="Logo" className="w-9 h-9 object-contain" />
           <span className="text-xl font-bold tracking-wide">CareerHub</span>
         </div>
 
@@ -187,9 +186,7 @@ const Login = () => {
         >
           {/* Brand Badge inside Card (SaaS design) */}
           <div className="flex items-center space-x-2.5 pb-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-              <Briefcase className="w-4.5 h-4.5 text-white" />
-            </div>
+            <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
             <span className="font-extrabold text-sm tracking-wide text-gray-900 dark:text-white">CareerHub</span>
           </div>
 

@@ -16,6 +16,7 @@ const statsRoutes = require("./routes/statsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
 
 const app = express();
 
@@ -71,6 +72,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/reports", reportRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use("/api/stats", statsRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 8000;

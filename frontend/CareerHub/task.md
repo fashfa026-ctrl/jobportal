@@ -1,0 +1,11 @@
+- [x] Modify `backend/config/db.js` for MongoDB connection caching
+- [x] Commit database connection fixes
+- [x] Push main branch to GitHub
+- [x] Local branding changes: "JobPortal" to "CareerHub" in code and layout files
+- [x] Standardize logo usage: replace briefcase icons with logo.png in sidebars, landing header, and auth pages
+- [x] Implement responsive sidebar/drawer in Admin Dashboard
+- [x] Restructure and improve Home page Footer layout
+- [x] Create backend Review/Testimonial Model, Controller and Routes
+- [x] Add Reviews section to Landing Page frontend
+- [x] Test production build (successful with 0 errors)
+- [ ] Push branding, responsive, footer, and review fixes to GitHub (Waiting for User Confirmation)

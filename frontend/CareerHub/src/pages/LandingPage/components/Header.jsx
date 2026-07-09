@@ -1,11 +1,13 @@
-import React from "react";
-import { Briefcase } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../../context/AuthContext";
 import ThemeToggle from "../../../components/layout/ThemeToggle";
+import logo from "../../../assets/logo.png";
 
 const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -31,9 +33,7 @@ const Header = () => {
             onClick={() => navigate("/")}
             className="cursor-pointer flex items-center space-x-3"
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <Briefcase className="w-5 h-5 text-white" />
-            </div>
+            <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">CareerHub</span>
           </div>
 
@@ -88,33 +88,95 @@ const Header = () => {
                   </span>
                 </div>
 
-                <Link
-                  to={
-                    user?.role === "employer"
-                      ? "/employer-dashboard"
-                      : user?.role === "admin"
-                      ? "/admin/dashboard"
-                      : "/find-jobs"
-                  }
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-sm"
-                >
-                  Dashboard
-                </Link>
+                <div className="hidden md:block">
+                  <Link
+                    to={
+                      user?.role === "employer"
+                        ? "/employer-dashboard"
+                        : user?.role === "admin"
+                        ? "/admin/dashboard"
+                        : "/find-jobs"
+                    }
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-sm"
+                  >
+                    Dashboard
+                  </Link>
+                </div>
               </div>
             ) : (
-              <>
+              <div className="hidden md:flex items-center space-x-3">
                 <Link to="/login" className="text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium px-4 py-2">
                   Login
                 </Link>
                 <Link to="/signup" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium">
                   Sign Up
                 </Link>
-              </>
+              </div>
             )}
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl hover:bg-gray-150 dark:hover:bg-slate-900 text-gray-500 dark:text-slate-400 transition ml-2"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
 
         </div>
       </div>
+
+      {/* Mobile Links Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-gray-150 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-3 transition-colors duration-200">
+          <a
+            onClick={() => { setMobileMenuOpen(false); navigate("/find-jobs"); }}
+            className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-1 cursor-pointer"
+          >
+            Find Jobs
+          </a>
+          <a
+            onClick={() => { setMobileMenuOpen(false); navigate("/for-employers"); }}
+            className="block text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-1 cursor-pointer"
+          >
+            For Employers
+          </a>
+          {isAuthenticated ? (
+            <div className="pt-2 border-t border-gray-100 dark:border-slate-800 flex flex-col space-y-2">
+              <Link
+                to={
+                  user?.role === "employer"
+                    ? "/employer-dashboard"
+                    : user?.role === "admin"
+                    ? "/admin/dashboard"
+                    : "/find-jobs"
+                }
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-2 rounded-xl shadow-sm"
+              >
+                Dashboard
+              </Link>
+            </div>
+          ) : (
+            <div className="pt-2 border-t border-gray-150 dark:border-slate-800 flex flex-col space-y-2">
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white font-medium py-2 rounded-xl border border-gray-200 dark:border-slate-800"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-2 rounded-xl shadow-sm"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
+        </div>
+      )}
     </motion.header>
   );
 };

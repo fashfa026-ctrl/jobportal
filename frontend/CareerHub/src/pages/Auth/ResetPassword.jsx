@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Lock, Eye, EyeOff, Loader, AlertCircle, CheckCircle, Briefcase } from "lucide-react";
 import axiosInstance from "../utils/axiosInstance";
 import { API_PATHS } from "../utils/apiPaths";
+import logo from "../../assets/logo.png";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -75,9 +76,7 @@ const ResetPassword = () => {
       >
         {/* Brand Badge inside Card (SaaS design) */}
         <div className="flex items-center space-x-2.5 pb-2">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-            <Briefcase className="w-4.5 h-4.5 text-white" />
-          </div>
+          <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
           <span className="font-extrabold text-sm tracking-wide text-gray-900 dark:text-white">CareerHub</span>
         </div>
         {success ? (

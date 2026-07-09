@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from "../LandingPage/components/Features";
 import Analytics from "../LandingPage/components/Analytics";
+import Reviews from "../LandingPage/components/Reviews";
 import Footer from "../LandingPage/components/Footer";
 
 const LandingPage = () => {
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <Hero />
       <Features />
       <Analytics />
+      <Reviews />
       <Footer />
     </div>
   )

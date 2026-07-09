@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { NAVIGATION_MENU } from "../../pages/utils/data";
 import ThemeToggle from "./ThemeToggle";
+import logo from "../../assets/logo.png";
 
 // Navigation Item Component
 const NavigationItem = ({ item, isActive, onClick, isCollapsed }) => {
@@ -52,6 +53,15 @@ const DashboardLayout = ({ children, activeMenu }) => {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const getAvatarUrl = (url) => {
+    if (!url || typeof url !== "string")
+      return "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+    if (url.startsWith("http") || url.startsWith("blob:")) return url;
+    const base = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000");
+    const cleanPath = url.startsWith("/") ? url : `/${url}`;
+    return encodeURI(`${base}${cleanPath}`);
+  };
 
   // Responsive Layout Calculations
   useEffect(() => {
@@ -130,18 +140,14 @@ const DashboardLayout = ({ children, activeMenu }) => {
               to="/"
               className="flex items-center space-x-3 px-2"
             >
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0">
-                <Briefcase className="h-5 w-5 text-white" />
-              </div>
+              <img src={logo} alt="Logo" className="w-8 h-8 object-contain flex-shrink-0" />
               <span className="text-xl font-bold text-gray-900 dark:text-white truncate">
-                JobPortal
+                CareerHub
               </span>
             </Link>
           ) : (
             <div className="w-full flex justify-center">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0">
-                <Building2 className="h-5 w-5 text-white" />
-              </div>
+              <img src={logo} alt="Logo" className="w-8 h-8 object-contain" />
             </div>
           )}
 
@@ -227,9 +233,12 @@ const DashboardLayout = ({ children, activeMenu }) => {
               >
                 {user?.profileImage || user?.avatar ? (
                   <img
-                    src={user.profileImage || user.avatar}
+                    src={getAvatarUrl(user.profileImage || user.avatar)}
                     alt="Profile"
                     className="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-slate-700"
+                    onError={(e) => {
+                      e.target.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+                    }}
                   />
                 ) : (
                   <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">

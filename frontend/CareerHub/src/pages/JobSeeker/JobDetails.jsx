@@ -29,6 +29,12 @@ const JobDetails = () => {
   const navigate = useNavigate();
 
   const [jobDetails, setJobDetails] = useState(null);
+  const [isApplying, setIsApplying] = useState(false);
+
+  const getFullUrl = (url) => {
+    if (!url) return "#";
+    return url.startsWith("http") ? url : `https://${url}`;
+  };
 
   const getJobDetailsById = async () => {
     try {
@@ -58,10 +64,16 @@ const JobDetails = () => {
   }, [jobId]);
 
   const applyToJob = async () => {
-    if (user?.role !== "jobseeker") {
+    if (!user) {
+      toast.error("Please login to apply for this job!");
+      navigate("/login");
+      return;
+    }
+    if (user.role !== "jobseeker") {
       toast.error("Only Job Seekers can apply for jobs!");
       return;
     }
+    setIsApplying(true);
     try {
       await axiosInstance.post(API_PATHS.APPLICATIONS.APPLY_TO_JOB(jobId));
       toast.success("Applied to job successfully");
@@ -69,6 +81,8 @@ const JobDetails = () => {
     } catch (err) {
       const errorMsg = err?.response?.data?.message;
       toast.error(errorMsg || "Something went wrong! Try again later");
+    } finally {
+      setIsApplying(false);
     }
   };
 
@@ -102,6 +116,17 @@ const JobDetails = () => {
     }
   };
 
+  if (!jobDetails) {
+    return (
+      <div className="bg-slate-50 min-h-screen">
+        <Navbar />
+        <div className="container mx-auto pt-32 px-4 pb-12 flex justify-center items-center h-[50vh]">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-indigo-650"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     // ✅ Plain slate background — gradient backgrounds reserved for hero/marketing sections only
     <div className="bg-slate-50 min-h-screen">
@@ -109,8 +134,7 @@ const JobDetails = () => {
 
       <div className="container mx-auto pt-24 px-4 pb-12 max-w-6xl">
 
-        {jobDetails && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             {/* ============ LEFT: Main job content ============ */}
             <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
@@ -142,9 +166,9 @@ const JobDetails = () => {
                       <div className="flex items-center gap-2 text-sm text-slate-500">
                         {jobDetails?.company?.companyName && (
                           <>
-                            {jobDetails.company.companyWebsite ? (
+                             {jobDetails.company.companyWebsite ? (
                               
-                               <a href={jobDetails.company.companyWebsite}
+                               <a href={getFullUrl(jobDetails.company.companyWebsite)}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="font-medium text-slate-600 hover:text-indigo-600 hover:underline transition"
@@ -266,9 +290,10 @@ const JobDetails = () => {
                 ) : (
                   <button
                     onClick={applyToJob}
-                    className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition"
+                    disabled={isApplying}
+                    className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition flex justify-center items-center"
                   >
-                    Apply Now
+                    {isApplying ? "Applying..." : "Apply Now"}
                   </button>
                 )}
               </div>
@@ -341,9 +366,9 @@ const JobDetails = () => {
                         {jobDetails.company.companyLocation}
                       </div>
                     )}
-                    {jobDetails.company.companyWebsite && (
-                      
-                       <a href={jobDetails.company.companyWebsite}
+                     {jobDetails.company.companyWebsite && (
+                       
+                        <a href={getFullUrl(jobDetails.company.companyWebsite)}
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-2 text-sm text-indigo-600 hover:underline"
@@ -364,7 +389,6 @@ const JobDetails = () => {
             )}
 
           </div>
-        )}
 
         <button
           onClick={() => navigate(-1)}

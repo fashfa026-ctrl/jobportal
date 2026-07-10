@@ -45,10 +45,10 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/job/:jobId" element={<JobDetails />} />
+          <Route path="/find-jobs" element={<JobSeekerDashboard />} />
 
           {/* Job Seeker Protected Routes */}
           <Route element={<ProtectedRoute requiredRole="jobseeker" />}>
-            <Route path="/find-jobs" element={<JobSeekerDashboard />} />
             <Route path="/saved-jobs" element={<SavedJobs />} />
             <Route path="/profile" element={<UserProfile />} />
           </Route>

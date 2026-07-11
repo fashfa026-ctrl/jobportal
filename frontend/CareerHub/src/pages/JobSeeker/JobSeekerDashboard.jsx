@@ -138,7 +138,12 @@ const JobSeekerDashboard = () => {
   };
 
   const applyToJob = async (jobId) => {
-    if (user?.role !== "jobseeker") {
+    if (!user) {
+      toast.error("Please login to apply for this job!");
+      navigate("/login");
+      return;
+    }
+    if (user.role !== "jobseeker") {
       toast.error("Only Job Seekers can apply for jobs!");
       return;
     }

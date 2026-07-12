@@ -74,64 +74,66 @@ const AdminApplications = () => {
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-gray-50 border-b border-gray-100">
-                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Applicant</th>
-                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Job</th>
-                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Status</th>
-                <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Applied</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {loading ? (
-                <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-400">Loading...</td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Applicant</th>
+                  <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Job</th>
+                  <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Status</th>
+                  <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase">Applied</th>
                 </tr>
-              ) : filtered.length === 0 ? (
-                <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-400">No applications found</td>
-                </tr>
-              ) : (
-                filtered.map((app) => (
-                  <tr key={app._id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-                          {app.applicant?.avatar ? (
-                            <img
-                              src={app.applicant.avatar.startsWith("http") ? app.applicant.avatar : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${app.applicant.avatar}`}
-                              className="w-9 h-9 rounded-full object-cover"
-                            />
-                          ) : (
-                            <span className="text-white text-sm font-semibold">
-                              {app.applicant?.fullName?.charAt(0).toUpperCase() || "?"}
-                            </span>
-                          )}
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-900">{app.applicant?.fullName || "Unknown"}</p>
-                          <p className="text-xs text-gray-500">{app.applicant?.email}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <p className="font-medium text-gray-900">{app.job?.title || "Unknown Job"}</p>
-                      <p className="text-xs text-gray-500">{app.job?.company?.companyName}</p>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(app.status)}`}>
-                        {app.status || "applied"}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-gray-500 text-xs">
-                      {moment(app.createdAt).format("DD MMM YYYY")}
-                    </td>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {loading ? (
+                  <tr>
+                    <td colSpan={4} className="px-6 py-8 text-center text-gray-400">Loading...</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                ) : filtered.length === 0 ? (
+                  <tr>
+                    <td colSpan={4} className="px-6 py-8 text-center text-gray-400">No applications found</td>
+                  </tr>
+                ) : (
+                  filtered.map((app) => (
+                    <tr key={app._id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                            {app.applicant?.avatar ? (
+                              <img
+                                src={app.applicant.avatar.startsWith("http") ? app.applicant.avatar : `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}${app.applicant.avatar}`}
+                                className="w-9 h-9 rounded-full object-cover"
+                              />
+                            ) : (
+                              <span className="text-white text-sm font-semibold">
+                                {app.applicant?.fullName?.charAt(0).toUpperCase() || "?"}
+                              </span>
+                            )}
+                          </div>
+                          <div>
+                            <p className="font-medium text-gray-900">{app.applicant?.fullName || "Unknown"}</p>
+                            <p className="text-xs text-gray-500">{app.applicant?.email}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <p className="font-medium text-gray-900">{app.job?.title || "Unknown Job"}</p>
+                        <p className="text-xs text-gray-500">{app.job?.company?.companyName}</p>
+                      </td>
+                      <td className="px-6 py-4">
+                        <span className={`px-2.5 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(app.status)}`}>
+                          {app.status || "applied"}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-gray-500 text-xs">
+                        {moment(app.createdAt).format("DD MMM YYYY")}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>

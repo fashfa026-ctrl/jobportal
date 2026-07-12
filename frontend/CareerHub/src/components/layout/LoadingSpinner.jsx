@@ -1,4 +1,4 @@
-import { Briefcase } from "lucide-react";
+import logo from "../../assets/logo.png";
 
 const LoadingSpinner = () => {
   return (
@@ -11,7 +11,7 @@ const LoadingSpinner = () => {
           
           {/* Inner static icon */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <Briefcase className="w-5 h-5 text-blue-600" />
+            <img src={logo} alt="Logo" className="w-5 h-5 object-contain" />
           </div>
         </div>
 

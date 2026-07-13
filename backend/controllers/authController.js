@@ -63,7 +63,7 @@ exports.sendApplicationStatusEmail = async ({ to, applicantName, jobTitle, compa
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 500px; margin: auto; padding: 30px; border: 1px solid #e5e7eb; border-radius: 10px;">
           <h2 style="color: #1E40AF;">Application Status Update</h2>
-          <p>Hello <strong>${applicantName}</strong>,</p>
+          <p>Hi <strong>${applicantName}</strong>,</p>
           <p>${headerMessage}</p>
           <div style="margin: 20px 0; padding: 16px; background: #F9FAFB; border-radius: 8px;">
             <p style="margin: 4px 0;"><strong>Job:</strong> ${jobTitle}</p>

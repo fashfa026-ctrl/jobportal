@@ -143,7 +143,7 @@ const Login = () => {
             </h1>
             {/* [FIXED] dark:text-slate-350 -> dark:text-slate-300 (invalid shade) */}
             <p className="text-lg text-blue-100 dark:text-slate-300 leading-relaxed">
-              Log in to your personalized job portal to view active vacancies, track applications, and communicate with recruiters.
+              Log in to your personalized job portal to view active vacancies, track applications, and receive application updates.
             </p>
           </motion.div>
 

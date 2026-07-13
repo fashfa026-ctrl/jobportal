@@ -31,4 +31,37 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// Cascade delete associated applications, saved jobs, and employer jobs when a user is deleted
+userSchema.pre("deleteOne", { document: true, query: false }, async function (next) {
+  try {
+    const mongoose = require("mongoose");
+    const Application = mongoose.model("Application");
+    const SavedJob = mongoose.model("SavedJob");
+    const Job = mongoose.model("Job");
+
+    console.log(`Cascade deleting data for user: ${this._id} (${this.email})`);
+
+    // 1. Delete user's own applications and saved jobs
+    await Application.deleteMany({ applicant: this._id });
+    await SavedJob.deleteMany({ jobseeker: this._id });
+
+    // 2. If the user is an employer, delete all posted jobs and their associated applications/saved jobs
+    if (this.role === "employer") {
+      const jobs = await Job.find({ company: this._id });
+      const jobIds = jobs.map((job) => job._id);
+
+      if (jobIds.length > 0) {
+        await Application.deleteMany({ job: { $in: jobIds } });
+        await SavedJob.deleteMany({ job: { $in: jobIds } });
+        await Job.deleteMany({ company: this._id });
+        console.log(`Deleted ${jobIds.length} jobs and their applications posted by employer ${this._id}`);
+      }
+    }
+
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = mongoose.model("User", userSchema);

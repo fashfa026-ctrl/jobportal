@@ -61,11 +61,22 @@ exports.getJobs = async (req, res) => {
       });
     }
 
-    const jobsWithStatus = jobs.map((job) => ({
-      ...job.toObject(),
-      isSaved: savedJobIds.includes(job._id.toString()),
-      applicationStatus: applicationMap[job._id.toString()] || null,
-    }));
+    const jobsWithStatus = await Promise.all(
+      jobs.map(async (job) => {
+        // Dynamic sync/healing of applicationCount
+        const actualCount = await Application.countDocuments({ job: job._id });
+        if (job.applicationCount !== actualCount) {
+          job.applicationCount = actualCount;
+          await job.save();
+        }
+
+        return {
+          ...job.toObject(),
+          isSaved: savedJobIds.includes(job._id.toString()),
+          applicationStatus: applicationMap[job._id.toString()] || null,
+        };
+      })
+    );
 
     res.json(jobsWithStatus);
   } catch (err) {
@@ -79,7 +90,19 @@ exports.getJobsEmployer = async (req, res) => {
     const jobs = await Job.find({ company: req.user._id })
       .populate("company", "name companyName companyLogo companyDescription companyLocation companyWebsite companyPhone")
 
-    res.json(jobs);
+    // Dynamic sync/healing of applicationCounts in parallel
+    const jobsWithStatus = await Promise.all(
+      jobs.map(async (job) => {
+        const actualCount = await Application.countDocuments({ job: job._id });
+        if (job.applicationCount !== actualCount) {
+          job.applicationCount = actualCount;
+          await job.save();
+        }
+        return job;
+      })
+    );
+
+    res.json(jobsWithStatus);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: err.message });
@@ -98,6 +121,13 @@ exports.getJobById = async (req, res) => {
 
     if (!job) {
       return res.status(404).json({ message: "Job not found" });
+    }
+
+    // Dynamic sync/healing of applicationCount
+    const actualCount = await Application.countDocuments({ job: job._id });
+    if (job.applicationCount !== actualCount) {
+      job.applicationCount = actualCount;
+      await job.save();
     }
 
     let isSaved = false;

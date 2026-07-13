@@ -115,7 +115,7 @@ exports.updateStatus = async (req, res) => {
     // ✅ Send email notification when status becomes accepted or rejected
     if (status === "accepted" || status === "rejected") {
       const companyName = req.user.companyName || "the company";
-      sendApplicationStatusEmail({
+      await sendApplicationStatusEmail({
         to: app.applicant.email,
         applicantName: app.applicant.fullName,
         jobTitle: app.job.title,

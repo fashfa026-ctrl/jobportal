@@ -35,7 +35,7 @@ const AdminUsers = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  /*const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
       await axiosInstance.delete(API_PATHS.ADMIN.DELETE_USER(id));
@@ -44,7 +44,7 @@ const AdminUsers = () => {
     } catch (err) {
       toast.error("Failed to delete user.");
     }
-  };
+  };*/
 
   useEffect(() => {
     fetchUsers();
@@ -164,13 +164,13 @@ const AdminUsers = () => {
                               : <ShieldOff className="w-4 h-4" />
                             }
                           </button>
-                          <button
+                          {/*<button
                             onClick={() => handleDelete(user._id)}
                             className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
                             title="Delete User"
                           >
                             <Trash2 className="w-4 h-4" />
-                          </button>
+                          </button>*/}
                         </div>
                       </td>
                     </tr>
